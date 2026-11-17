@@ -34,8 +34,9 @@ os.environ.setdefault("CDSAPI_RC", "/etc/energy/cdsapirc")
 # vent Y = -0.1 + 254.4 cf (r = 0.999).
 SCALE = 255.0
 
-# Modèle PV. Défaut avant étalonnage solaire : écart de pente de 7 % avec l'auteur (r = 0.996).
-PV = {"panel": "CSi", "orientation": "latitude_optimal"}
+# Modèle PV de l'auteur, retrouvé par étalonnage (2023-06-21) : CdTe, orientation optimale en latitude,
+# Y = -0.2 + 254.1 cf (r = 0.9986). CSi donnait une pente de 273 (7 % d'écart).
+PV = {"panel": "CdTe", "orientation": "latitude_optimal"}
 PV_CANDIDATES = {
     "CSi latitude_optimal": {"panel": "CSi", "orientation": "latitude_optimal"},
     "CSi pente 30 sud": {"panel": "CSi", "orientation": {"slope": 30.0, "azimuth": 180.0}},
