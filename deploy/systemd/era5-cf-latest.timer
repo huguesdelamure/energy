@@ -1,0 +1,10 @@
+[Unit]
+Description=Raster ERA5 du dernier jour publie
+
+[Timer]
+OnCalendar=*-*-* 07:30
+RandomizedDelaySec=900
+Persistent=true
+
+[Install]
+WantedBy=timers.target

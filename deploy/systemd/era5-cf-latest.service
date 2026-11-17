@@ -1,0 +1,15 @@
+[Unit]
+Description=Rasters de facteur de charge ERA5 (latest)
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=energy
+Group=energy
+Environment=CDSAPI_RC=/etc/energy/cdsapirc
+ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/era5_cf.py latest
+Nice=19
+IOSchedulingClass=idle
+MemoryMax=3G
+TimeoutStartSec=infinity
