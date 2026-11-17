@@ -11,5 +11,5 @@ Environment=CDSAPI_RC=/etc/energy/cdsapirc
 ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/era5_cf.py latest
 Nice=19
 IOSchedulingClass=idle
-MemoryMax=3G
+MemoryMax=3500M
 TimeoutStartSec=infinity

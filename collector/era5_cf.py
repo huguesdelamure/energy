@@ -30,37 +30,52 @@ OUT = Path("/srv/energy/static/cf")
 WORK = Path("/var/lib/energy/era5")
 os.environ.setdefault("CDSAPI_RC", "/etc/energy/cdsapirc")
 
-# Encodage de la valeur : Y = OFFSET + SCALE * cf, 0 quand cf <= 0 (nuit, calme).
-# Valeurs par défaut à confirmer par "calibrate" sur un jour publié par l'auteur.
-OFFSET, SCALE = 16.0, 219.0
+# Encodage de la valeur : Y = 255 * cf. Étalonné le 2026-11-17 sur le 2023-06-21 publié par l'auteur :
+# vent Y = -0.1 + 254.4 cf (r = 0.999).
+SCALE = 255.0
+
+# Modèle PV. Défaut avant étalonnage solaire : écart de pente de 7 % avec l'auteur (r = 0.996).
+PV = {"panel": "CSi", "orientation": "latitude_optimal"}
+PV_CANDIDATES = {
+    "CSi latitude_optimal": {"panel": "CSi", "orientation": "latitude_optimal"},
+    "CSi pente 30 sud": {"panel": "CSi", "orientation": {"slope": 30.0, "azimuth": 180.0}},
+    "CSi pente 35 sud": {"panel": "CSi", "orientation": {"slope": 35.0, "azimuth": 180.0}},
+    "CdTe latitude_optimal": {"panel": "CdTe", "orientation": "latitude_optimal"},
+    "CSi latitude_optimal clearsky enhanced": {"panel": "CSi", "orientation": "latitude_optimal", "clearsky_model": "enhanced"},
+    "CSi tracking horizontal": {"panel": "CSi", "orientation": "latitude_optimal", "tracking": "horizontal"},
+}
 
 log = logging.getLogger("era5")
 
 
+def grid(da):
+    da = da.transpose("time", "y", "x").sortby("y", ascending=False).sortby("x")
+    return np.nan_to_num(da.values.astype(np.float32), nan=0.0)
+
+
+def cutout_for(day):
+    WORK.mkdir(parents=True, exist_ok=True)
+    cutout = atlite.Cutout(path=WORK / f"{day}.nc", module="era5", x=slice(-180, 180), y=slice(-90, 90),
+                           time=str(day), dx=0.25, dy=0.25)
+    cutout.prepare(features=["wind", "influx", "temperature"], monthly_requests=False)
+    return cutout
+
+
 def capacity_factors(day):
     """Renvoie (vent, solaire) : tableaux (24, 721, 1440) float32, latitude décroissante, longitude -180..180."""
-    WORK.mkdir(parents=True, exist_ok=True)
-    nc = WORK / f"{day}.nc"
-    cutout = atlite.Cutout(path=nc, module="era5", x=slice(-180, 180), y=slice(-90, 90),
-                           time=str(day), dx=0.25, dy=0.25)
     try:
-        cutout.prepare(features=["wind", "influx", "temperature"], monthly_requests=False)
-        wind = cutout.wind(turbine="Vestas_V112_3MW", capacity_factor_timeseries=True)
-        pv = cutout.pv(panel="CSi", orientation="latitude_optimal", capacity_factor_timeseries=True)
-        out = []
-        for da in (wind, pv):
-            da = da.transpose("time", "y", "x").sortby("y", ascending=False).sortby("x")
-            out.append(np.nan_to_num(da.values.astype(np.float32), nan=0.0))
-        return out
+        cutout = cutout_for(day)
+        wind = grid(cutout.wind(turbine="Vestas_V112_3MW", aggregate_time=None))
+        pv = grid(cutout.pv(**PV, aggregate_time=None))
+        return wind, pv
     finally:
-        nc.unlink(missing_ok=True)
+        (WORK / f"{day}.nc").unlink(missing_ok=True)
 
 
 def to_frames(cf):
     """(24, 721, 1440) -> (24, 720, 1440) uint8 : on retire la ligne du pôle Sud pour 720 lignes."""
     cf = np.clip(cf[:, :720, :1440], 0, 1)
-    y = np.where(cf > 0, OFFSET + SCALE * cf, 0)
-    return np.round(y).astype(np.uint8)
+    return np.round(SCALE * cf).astype(np.uint8)
 
 
 def encode(frames, dest):
@@ -91,16 +106,27 @@ def do_day(day, force=False):
     return True
 
 
+def fit(cf, theirs):
+    ours = np.clip(cf[:, :720, :1440], 0, 1)
+    m = (theirs > 20) & (ours > 0.02)
+    b, a = np.polyfit(ours[m], theirs[m], 1)
+    r = np.corrcoef(ours[m], theirs[m])[0, 1]
+    return f"Y_auteur = {a:.1f} + {b:.1f} * cf  (r = {r:.4f}, {m.sum()} pixels)"
+
+
 def calibrate(day):
-    """Ajuste Y_auteur = a + b * cf_calculé sur les pixels > 0 des deux rasters, sans rien écrire."""
-    wind, pv = capacity_factors(day)
-    for name, cf, f in (("vent", wind, "w_crf22.mp4"), ("solaire", pv, "s_crf22.mp4")):
-        theirs = decode(OUT / f"{day:%Y/%m/%d}" / f).astype(np.float32)
-        ours = np.clip(cf[:, :720, :1440], 0, 1)
-        m = (theirs > 20) & (ours > 0.02)
-        b, a = np.polyfit(ours[m], theirs[m], 1)
-        r = np.corrcoef(ours[m], theirs[m])[0, 1]
-        print(f"{name}: Y_auteur = {a:.1f} + {b:.1f} * cf  (r = {r:.3f}, {m.sum()} pixels)")
+    """Compare au fichier de l'auteur (pente idéale 255, ordonnée 0), sans rien écrire.
+    Le cutout ERA5 est gardé dans WORK pour rejouer les candidats PV sans retélécharger."""
+    cutout = cutout_for(day)
+    d = OUT / f"{day:%Y/%m/%d}"
+    print("vent:", fit(grid(cutout.wind(turbine="Vestas_V112_3MW", aggregate_time=None)),
+                       decode(d / "w_crf22.mp4").astype(np.float32)))
+    theirs = decode(d / "s_crf22.mp4").astype(np.float32)
+    for name, params in PV_CANDIDATES.items():
+        try:
+            print(f"solaire {name}:", fit(grid(cutout.pv(**params, aggregate_time=None)), theirs), flush=True)
+        except Exception as e:
+            print(f"solaire {name}: erreur {e}", flush=True)
 
 
 def main():
