@@ -1,6 +1,6 @@
 # Spec SQL entsoe.* : dossier Grafana "Europe electricity" (11 dashboards)
 
-Source : /private/tmp/claude-501/-Users-hugues--t3-scratch-2026-11-17-l-auteur-du-site-https-1f9ee24b/532c93fb-8b15-451d-91bf-51843c21ad9f/scratchpad/eg/dash/*.json (folderTitle = "Europe electricity"). Datasource Postgres uid I3yziRGVz. Les panels à targets vides utilisent "-- Dashboard --" (ils réutilisent la requête d'un autre panel, notés "via panel N").
+Source : dashboards/original/*.json (folderTitle = "Europe electricity"). Datasource Postgres uid I3yziRGVz. Les panels à targets vides utilisent "-- Dashboard --" (ils réutilisent la requête d'un autre panel, notés "via panel N").
 
 ## Conventions transverses (déduites)
 - Interpolation Grafana Postgres : variable multi => `'a','b'` (texte quoté) ; `$years` custom => entiers non quotés ; `${x:sqlstring}` idem quoté. Donc `ARRAY[$countries]` = text[], `ARRAY[$years]` = int[], `ARRAY[$units]` = text[] (codes EIC).
