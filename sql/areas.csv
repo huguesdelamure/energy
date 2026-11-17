@@ -1,0 +1,118 @@
+code,area_type,eic,country,name
+AL,cty,10YAL-KESH-----5,AL,Albania
+AT,cty,10YAT-APG------L,AT,Austria
+BA,cty,10YBA-JPCC-----D,BA,Bosnia and Herzegovina
+BE,cty,10YBE----------2,BE,Belgium
+BG,cty,10YCA-BULGARIA-R,BG,Bulgaria
+CH,cty,10YCH-SWISSGRIDZ,CH,Switzerland
+CZ,cty,10YCZ-CEPS-----N,CZ,Czech Republic
+DE,cty,10Y1001A1001A83F,DE,Germany
+DK,cty,10Y1001A1001A65H,DK,Denmark
+EE,cty,10Y1001A1001A39I,EE,Estonia
+ES,cty,10YES-REE------0,ES,Spain
+FI,cty,10YFI-1--------U,FI,Finland
+FR,cty,10YFR-RTE------C,FR,France
+GB,cty,10Y1001A1001A92E,GB,United Kingdom
+GE,cty,10Y1001A1001B012,GE,Georgia
+GR,cty,10YGR-HTSO-----Y,GR,Greece
+HR,cty,10YHR-HEP------M,HR,Croatia
+HU,cty,10YHU-MAVIR----U,HU,Hungary
+IE,cty,10YIE-1001A00010,IE,Ireland
+IT,cty,10YIT-GRTN-----B,IT,Italy
+LT,cty,10YLT-1001A0008Q,LT,Lithuania
+LV,cty,10YLV-1001A00074,LV,Latvia
+MD,cty,10Y1001A1001A990,MD,Moldova
+ME,cty,10YCS-CG-TSO---S,ME,Montenegro
+MK,cty,10YMK-MEPSO----8,MK,North Macedonia
+NL,cty,10YNL----------L,NL,Netherlands
+NO,cty,10YNO-0--------C,NO,Norway
+PL,cty,10YPL-AREA-----S,PL,Poland
+PT,cty,10YPT-REN------W,PT,Portugal
+RO,cty,10YRO-TEL------P,RO,Romania
+RS,cty,10YCS-SERBIATSOV,RS,Serbia
+SE,cty,10YSE-1--------K,SE,Sweden
+SI,cty,10YSI-ELES-----O,SI,Slovenia
+SK,cty,10YSK-SEPS-----K,SK,Slovakia
+UA,cty,10Y1001C--00003F,UA,Ukraine
+XK,cty,10Y1001C--00100H,XK,Kosovo
+AT,bzn,10YAT-APG------L,AT,Austria
+BE,bzn,10YBE----------2,BE,Belgium
+BG,bzn,10YCA-BULGARIA-R,BG,Bulgaria
+CH,bzn,10YCH-SWISSGRIDZ,CH,Switzerland
+CZ,bzn,10YCZ-CEPS-----N,CZ,Czech Republic
+DE_AT_LU,bzn,10Y1001A1001A63L,DE,Germany-Austria-Luxembourg (until 2018-09-30)
+DE_LU,bzn,10Y1001A1001A82H,DE,Germany-Luxembourg
+DK1,bzn,10YDK-1--------W,DK,Denmark West
+DK2,bzn,10YDK-2--------M,DK,Denmark East
+EE,bzn,10Y1001A1001A39I,EE,Estonia
+ES,bzn,10YES-REE------0,ES,Spain
+FI,bzn,10YFI-1--------U,FI,Finland
+FR,bzn,10YFR-RTE------C,FR,France
+GR,bzn,10YGR-HTSO-----Y,GR,Greece
+HR,bzn,10YHR-HEP------M,HR,Croatia
+HU,bzn,10YHU-MAVIR----U,HU,Hungary
+IE_SEM,bzn,10Y1001A1001A59C,IE,Ireland SEM
+IT-CNORTH,bzn,10Y1001A1001A70O,IT,Italy Centre-North
+IT-CSOUTH,bzn,10Y1001A1001A71M,IT,Italy Centre-South
+IT-Calabria,bzn,10Y1001C--00096J,IT,Italy Calabria
+IT-NORTH,bzn,10Y1001A1001A73I,IT,Italy North
+IT-SOUTH,bzn,10Y1001A1001A788,IT,Italy South
+IT-Sardinia,bzn,10Y1001A1001A74G,IT,Italy Sardinia
+IT-Sicily,bzn,10Y1001A1001A75E,IT,Italy Sicily
+LT,bzn,10YLT-1001A0008Q,LT,Lithuania
+LV,bzn,10YLV-1001A00074,LV,Latvia
+ME,bzn,10YCS-CG-TSO---S,ME,Montenegro
+MK,bzn,10YMK-MEPSO----8,MK,North Macedonia
+NL,bzn,10YNL----------L,NL,Netherlands
+NO1,bzn,10YNO-1--------2,NO,Norway 1
+NO2,bzn,10YNO-2--------T,NO,Norway 2
+NO3,bzn,10YNO-3--------J,NO,Norway 3
+NO4,bzn,10YNO-4--------9,NO,Norway 4
+NO5,bzn,10Y1001A1001A48H,NO,Norway 5
+PL,bzn,10YPL-AREA-----S,PL,Poland
+PT,bzn,10YPT-REN------W,PT,Portugal
+RO,bzn,10YRO-TEL------P,RO,Romania
+RS,bzn,10YCS-SERBIATSOV,RS,Serbia
+SE1,bzn,10Y1001A1001A44P,SE,Sweden 1
+SE2,bzn,10Y1001A1001A45N,SE,Sweden 2
+SE3,bzn,10Y1001A1001A46L,SE,Sweden 3
+SE4,bzn,10Y1001A1001A47J,SE,Sweden 4
+SI,bzn,10YSI-ELES-----O,SI,Slovenia
+SK,bzn,10YSK-SEPS-----K,SK,Slovakia
+AL,cta,10YAL-KESH-----5,AL,Albania
+AT,cta,10YAT-APG------L,AT,Austria
+BA,cta,10YBA-JPCC-----D,BA,Bosnia and Herzegovina
+BE,cta,10YBE----------2,BE,Belgium
+BG,cta,10YCA-BULGARIA-R,BG,Bulgaria
+CH,cta,10YCH-SWISSGRIDZ,CH,Switzerland
+CZ,cta,10YCZ-CEPS-----N,CZ,Czech Republic
+DE_50HZ,cta,10YDE-VE-------2,DE,50Hertz
+DE_AMPRION,cta,10YDE-RWENET---I,DE,Amprion
+DE_TENNET,cta,10YDE-EON------1,DE,TenneT DE
+DE_TRANSNET,cta,10YDE-ENBW-----N,DE,TransnetBW
+DK,cta,10Y1001A1001A796,DK,Energinet
+EE,cta,10Y1001A1001A39I,EE,Estonia
+ES,cta,10YES-REE------0,ES,Spain
+FI,cta,10YFI-1--------U,FI,Finland
+FR,cta,10YFR-RTE------C,FR,France
+GB,cta,10YGB----------A,GB,National Grid
+GR,cta,10YGR-HTSO-----Y,GR,Greece
+HR,cta,10YHR-HEP------M,HR,Croatia
+HU,cta,10YHU-MAVIR----U,HU,Hungary
+IE,cta,10YIE-1001A00010,IE,EirGrid
+IT,cta,10YIT-GRTN-----B,IT,Italy
+LT,cta,10YLT-1001A0008Q,LT,Lithuania
+LU,cta,10YLU-CEGEDEL-NQ,LU,Creos
+LV,cta,10YLV-1001A00074,LV,Latvia
+ME,cta,10YCS-CG-TSO---S,ME,Montenegro
+MK,cta,10YMK-MEPSO----8,MK,North Macedonia
+NIE,cta,10Y1001A1001A016,GB,SONI
+NL,cta,10YNL----------L,NL,Netherlands
+NO,cta,10YNO-0--------C,NO,Statnett
+PL,cta,10YPL-AREA-----S,PL,Poland
+PT,cta,10YPT-REN------W,PT,Portugal
+RO,cta,10YRO-TEL------P,RO,Romania
+RS,cta,10YCS-SERBIATSOV,RS,Serbia
+SE,cta,10YSE-1--------K,SE,Svenska kraftnät
+SI,cta,10YSI-ELES-----O,SI,Slovenia
+SK,cta,10YSK-SEPS-----K,SK,Slovakia
