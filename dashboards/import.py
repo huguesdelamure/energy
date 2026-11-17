@@ -43,7 +43,9 @@ def adapt(text):
     text = text.replace('"type": "postgres"', '"type": "grafana-postgresql-datasource"')
     # Puissance du parc nucléaire codée en dur dans l'original (avant Flamanville 3) : 61370 -> 62990 MW.
     text = text.replace("61370", "62990")
-    return text.replace("https://r2.energygraph.info/", "/static/")
+    text = text.replace("https://r2.energygraph.info/", "/static/")
+    # Liens absolus vers le site d'origine (liens de panels, entre dashboards) -> relatifs.
+    return text.replace("https://energygraph.info/", "/")
 
 
 def main(src):
