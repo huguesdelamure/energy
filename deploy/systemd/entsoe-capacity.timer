@@ -1,0 +1,9 @@
+[Unit]
+Description=Capacités installées ENTSO-E (A68), mensuel
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

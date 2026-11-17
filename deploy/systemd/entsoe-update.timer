@@ -1,0 +1,10 @@
+[Unit]
+Description=Collecte ENTSO-E horaire
+
+[Timer]
+OnCalendar=*:20
+RandomizedDelaySec=120
+Persistent=true
+
+[Install]
+WantedBy=timers.target

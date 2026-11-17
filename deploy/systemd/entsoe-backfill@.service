@@ -1,0 +1,13 @@
+# Backfill d'un jeu depuis 2015, reprenable : systemctl start entsoe-backfill@A75
+[Unit]
+Description=Backfill ENTSO-E %i
+After=postgresql.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=energy
+Group=energy
+ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/entsoe_collect.py backfill %i
+Nice=15
+TimeoutStartSec=infinity
