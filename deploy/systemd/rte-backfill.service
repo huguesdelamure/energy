@@ -1,0 +1,14 @@
+# Rattrapage RTE depuis 2015, reprenable (fenêtres consolidées sautées).
+[Unit]
+Description=Backfill RTE (indisponibilités puis production)
+After=postgresql.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=energy
+Group=energy
+ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/rte_collect.py backfill unavailability
+ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/rte_collect.py backfill generation
+Nice=15
+TimeoutStartSec=infinity

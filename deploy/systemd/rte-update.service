@@ -1,0 +1,12 @@
+[Unit]
+Description=Collecte RTE (production par unité, indisponibilités) : derniers jours
+After=postgresql.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=energy
+Group=energy
+ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/rte_collect.py update --days 3
+Nice=10
+TimeoutStartSec=50min

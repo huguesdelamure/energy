@@ -1,0 +1,10 @@
+[Unit]
+Description=Collecte RTE horaire
+
+[Timer]
+OnCalendar=*:35
+RandomizedDelaySec=120
+Persistent=true
+
+[Install]
+WantedBy=timers.target
