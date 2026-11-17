@@ -1,0 +1,20 @@
+{
+"type": "FeatureCollection",
+"name": "region-grand-est:region_centroide",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.1", "nom_region": "BOURGOGNE-FRANCHE-COMTE", "code_region": "27" }, "geometry": { "type": "Point", "coordinates": [ 4.809109935611599, 47.235266078207147 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.2", "nom_region": "AUVERGNE-RHONE-ALPES", "code_region": "84" }, "geometry": { "type": "Point", "coordinates": [ 4.538300182060221, 45.515721984166788 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.3", "nom_region": "NORMANDIE", "code_region": "28" }, "geometry": { "type": "Point", "coordinates": [ 0.106783342234861, 49.121335890044286 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.4", "nom_region": "NOUVELLE-AQUITAINE", "code_region": "75" }, "geometry": { "type": "Point", "coordinates": [ 0.19232393249961, 45.192060407747057 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.5", "nom_region": "BRETAGNE", "code_region": "53" }, "geometry": { "type": "Point", "coordinates": [ -2.839223663222344, 48.180414734017717 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.6", "nom_region": "PAYS DE LA LOIRE", "code_region": "52" }, "geometry": { "type": "Point", "coordinates": [ -0.825071704737062, 47.474849714421374 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.7", "nom_region": "CORSE", "code_region": "94" }, "geometry": { "type": "Point", "coordinates": [ 9.105477747118931, 42.149385055512333 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.8", "nom_region": "GRAND EST", "code_region": "44" }, "geometry": { "type": "Point", "coordinates": [ 5.61895867159531, 48.689685829365139 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.9", "nom_region": "CENTRE-VAL DE LOIRE", "code_region": "24" }, "geometry": { "type": "Point", "coordinates": [ 1.685314158212553, 47.480806520896479 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.10", "nom_region": "ILE-DE-FRANCE", "code_region": "11" }, "geometry": { "type": "Point", "coordinates": [ 2.50463445962989, 48.709184366496885 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.11", "nom_region": "HAUTS-DE-FRANCE", "code_region": "32" }, "geometry": { "type": "Point", "coordinates": [ 2.774961335663396, 49.966718426639808 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.12", "nom_region": "OCCITANIE", "code_region": "76" }, "geometry": { "type": "Point", "coordinates": [ 2.136679608475648, 43.701811999387992 ] } },
+{ "type": "Feature", "properties": { "gml_id": "region_centroide.13", "nom_region": "PROVENCE-ALPES-COTE D'AZUR", "code_region": "93" }, "geometry": { "type": "Point", "coordinates": [ 6.057880031181894, 43.957123286984562 ] } }
+]
+}

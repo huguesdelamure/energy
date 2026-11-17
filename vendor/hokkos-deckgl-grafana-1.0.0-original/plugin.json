@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "panel",
+  "name": "hokkos-deckgl-grafana",
+  "id": "hokkos-deckgl-grafana",
+  "info": {
+    "description": "Use deck.gl as a panel in Grafana",
+    "author": {
+      "name": "hokkos",
+      "url": ""
+    },
+    "keywords": [
+      "deck",
+      "gl",
+      "deck.gl",
+      "heatmap"
+    ],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Website",
+        "url": "https://github.com/grafana/simple-react-panel"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/grafana/simple-react-panel/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "1.0.0",
+    "updated": "2023-10-12"
+  },
+  "dependencies": {
+    "grafanaDependency": ">=9.1.2",
+    "plugins": []
+  }
+}

@@ -1,0 +1,56 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "private",
+  "signedByOrg": "hokkos",
+  "signedByOrgName": "hokkos",
+  "rootUrls": [
+    "https://localhost:3000/",
+    "https://localhost:3001/",
+    "http://localhost:3000/",
+    "http://localhost:3001/"
+  ],
+  "plugin": "hokkos-deckgl-grafana",
+  "version": "1.0.0",
+  "time": 1697119129401,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "345.f7f58cd8a44e4f1aa61c.js": "27b6c5a4f146f5fcf4d6f56106e8e2ff2980a7ae31f88d7f8097968df802a68b",
+    "CHANGELOG.md": "ba613d6f914b27dce9ace4d8c0cb074273c9eb6c536d8e7ac24c5ce6ae941fd0",
+    "france_region_latitude_longitude_name.json": "fcf4692ce558d5fd54b6d8212ae2c47bb39da73d0a2a4d7f636b3ecc0b0c0023",
+    "module.js.LICENSE.txt": "d20b3d3c513228fa974f499458f5d5fb624e393f36a0ed347c3e955ee04e0a3e",
+    "302.5c74eadf4b40214dbef4.js": "1ce56a13b90432d178672d275e0f0046e60b0c24796c7b4e7c465ea991cd2a50",
+    "img/logo.svg": "1defc6f7e585c67657bcfd8fddc599ee7dfa82f8674413f49fa274c2cd453ec6",
+    "258.4d8b68de22527319c59a.js": "78a67948e2de28b12991ef8a525118be498d72431f29aeeffffc43a8b9221a63",
+    "26177c0464e82232c16c.js": "b8a8ed0a432b43852d3eb7b14f2f260198dd2ce470b3f5325eb4dfa447f8e55e",
+    "country_latitude_longitude_name.json": "b4ba437b5aef00ec432ae58fe334a13e51565d5cd5074c559bdae7a8e09b0b03",
+    "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+    "module.js": "a2324a8097f743a1fab8158d82e008c699a0be900ccec2644c3fd9ea545ef4d6",
+    "region_centroide.json": "adef01dadc452d5b2a2a77f58147a6edf5a375f54edeca3df09de2c8683e9bbe",
+    "plugin.json": "973bb96abf9636da19f9c2e8abae347d9a0c162bdf2e84050997362576439450",
+    "layers/eic_codes_y.json": "38b1c11907129698cfdfc4f35068b9be1a71cf5e84199db586fb58d407c1fea1",
+    "layers/entsoe.json": "6c138026b1e0bf9bbcb136bce050535a731527686acb3207638839567a0e0891",
+    "layers/colormaps.json": "97ba2b7fd35fc0f4a1fb58f705f1fca64622daa31d73fc7ce1767532264bc049",
+    "layers/eic_code_to_map_code.json": "f8d40f3eef85f26c28f76bcb9045ad4b9ff844493c258af425fe830c6705846f",
+    "layers/entsoe-points-geo.json": "0204de4e78859097119f0f2deb5cbe20fa25f124dfa42df1baa4907233b4c687",
+    "727.81f3c64440c113be68f6.js": "2e8217b41f607bcd297b1e3b603d94f48cf275433d85c64e0aa89b80edd69925",
+    "README.md": "660ffeb0bc2c7045d3899ceeccca488554a1446a99948ba925d08f9bcafbdbd8",
+    "291.bd5656a24fc163846cf9.js": "8394325bc9bc58abca1b482be96596bf8b4c7d5b493cf1bc861acda6fc0b8511",
+    "706.7d1119134d3ed275c849.js": "f9231fa8ce4d87867b3a230a4e9e7cf346b7f4e70587f4c9836e2661a8500b4a",
+    "201.db508ce974ef5580b7c6.js": "8369a01560099a0bc8539da74285850cc5b08cee82b84e4ea51883887803bff1"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.10
+Comment: https://openpgpjs.org
+
+wrgEARMKAAYFAmUn+5kAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm51JUAgkB9B1CCHCXmLcvjb1xyl1KplpBdHC35UjSYRmJPBs1f+pRuIcW
+OXmfZhRdN0wvVypdxvnLGOhjKzu0kGLTbKtLL2QCCKeU7MQ2087Bw/qpjlj+
+jjEMdBzB9ZbUACOb1Eoipmm1rUfiBAhDtBOfy4gavn425gabL6kVWUTywegH
+F9DlyHNO
+=9n2n
+-----END PGP SIGNATURE-----

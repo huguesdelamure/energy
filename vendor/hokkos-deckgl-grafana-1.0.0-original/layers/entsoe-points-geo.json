@@ -1,0 +1,581 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "10YAT-APG------L", "AreaCompoundCode": "BZN|10YAT-APG------L" },
+      "geometry": { "type": "Point", "coordinates": [15.34166, 47.74631] },
+      "id": "10YAT-APG------L"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YBE----------2", "AreaCompoundCode": "BZN|10YBE----------2" },
+      "geometry": { "type": "Point", "coordinates": [4.67797, 50.71818] },
+      "id": "10YBE----------2"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YCA-BULGARIA-R", "AreaCompoundCode": "BZN|10YCA-BULGARIA-R" },
+      "geometry": { "type": "Point", "coordinates": [25.02009, 42.53185] },
+      "id": "10YCA-BULGARIA-R"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YCH-SWISSGRIDZ", "AreaCompoundCode": "BZN|10YCH-SWISSGRIDZ" },
+      "geometry": { "type": "Point", "coordinates": [7.49888, 46.70738] },
+      "id": "10YCH-SWISSGRIDZ"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YCZ-CEPS-----N", "AreaCompoundCode": "BZN|10YCZ-CEPS-----N" },
+      "geometry": { "type": "Point", "coordinates": [14.27594, 49.7627] },
+      "id": "10YCZ-CEPS-----N"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A82H", "AreaCompoundCode": "BZN|10Y1001A1001A82H" },
+      "geometry": { "type": "Point", "coordinates": [9.72194, 51.14828] },
+      "id": "10Y1001A1001A82H"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YDK-1--------W", "AreaCompoundCode": "BZN|10YDK-1--------W" },
+      "geometry": { "type": "Point", "coordinates": [9.09982, 55.98661] },
+      "id": "10YDK-1--------W"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YDK-2--------M", "AreaCompoundCode": "BZN|10YDK-2--------M" },
+      "geometry": { "type": "Point", "coordinates": [11.87717, 55.42543] },
+      "id": "10YDK-2--------M"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A39I", "AreaCompoundCode": "BZN|10Y1001A1001A39I" },
+      "geometry": { "type": "Point", "coordinates": [26.4588, 58.6027] },
+      "id": "10Y1001A1001A39I"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YES-REE------0", "AreaCompoundCode": "BZN|10YES-REE------0" },
+      "geometry": { "type": "Point", "coordinates": [-3.45687, 39.97345] },
+      "id": "10YES-REE------0"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YFI-1--------U", "AreaCompoundCode": "BZN|10YFI-1--------U" },
+      "geometry": { "type": "Point", "coordinates": [27.42544, 63.3055] },
+      "id": "10YFI-1--------U"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YFR-RTE------C", "AreaCompoundCode": "BZN|10YFR-RTE------C" },
+      "geometry": { "type": "Point", "coordinates": [2.52771, 46.74556] },
+      "id": "10YFR-RTE------C"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YGR-HTSO-----Y", "AreaCompoundCode": "BZN|10YGR-HTSO-----Y" },
+      "geometry": { "type": "Point", "coordinates": [21.65357, 39.82474] },
+      "id": "10YGR-HTSO-----Y"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YHR-HEP------M", "AreaCompoundCode": "BZN|10YHR-HEP------M" },
+      "geometry": { "type": "Point", "coordinates": [16.44511, 45.84808] },
+      "id": "10YHR-HEP------M"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YHU-MAVIR----U", "AreaCompoundCode": "BZN|10YHU-MAVIR----U" },
+      "geometry": { "type": "Point", "coordinates": [20.35127, 47.19955] },
+      "id": "10YHU-MAVIR----U"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A59C", "AreaCompoundCode": "BZN|10Y1001A1001A59C" },
+      "geometry": { "type": "Point", "coordinates": [-7.5617, 53.41186] },
+      "id": "10Y1001A1001A59C"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A73I", "AreaCompoundCode": "BZN|10Y1001A1001A73I" },
+      "geometry": { "type": "Point", "coordinates": [10.9368, 45.33498] },
+      "id": "10Y1001A1001A73I"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A70O", "AreaCompoundCode": "BZN|10Y1001A1001A70O" },
+      "geometry": { "type": "Point", "coordinates": [11.3589, 43.28129] },
+      "id": "10Y1001A1001A70O"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A71M", "AreaCompoundCode": "BZN|10Y1001A1001A71M" },
+      "geometry": { "type": "Point", "coordinates": [13.64036, 41.99593] },
+      "id": "10Y1001A1001A71M"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A788", "AreaCompoundCode": "BZN|10Y1001A1001A788" },
+      "geometry": { "type": "Point", "coordinates": [16.27473, 40.65613] },
+      "id": "10Y1001A1001A788"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A699", "AreaCompoundCode": "BZN|10Y1001A1001A699" },
+      "geometry": { "type": "Point", "coordinates": [18.23242, 40.14495] },
+      "id": "10Y1001A1001A699"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A77A", "AreaCompoundCode": "BZN|10Y1001A1001A77A" },
+      "geometry": { "type": "Point", "coordinates": [16.31545, 38.55946] },
+      "id": "10Y1001A1001A77A"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A72K", "AreaCompoundCode": "BZN|10Y1001A1001A72K" },
+      "geometry": { "type": "Point", "coordinates": [15.53281, 41.52693] },
+      "id": "10Y1001A1001A72K"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A75E", "AreaCompoundCode": "BZN|10Y1001A1001A75E" },
+      "geometry": { "type": "Point", "coordinates": [14.37596, 37.52494] },
+      "id": "10Y1001A1001A75E"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A76C", "AreaCompoundCode": "BZN|10Y1001A1001A76C" },
+      "geometry": { "type": "Point", "coordinates": [15.03478, 37.07798] },
+      "id": "10Y1001A1001A76C"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A893", "AreaCompoundCode": "BZN|10Y1001A1001A893" },
+      "geometry": { "type": "Point", "coordinates": [9.27021, 40.93626] },
+      "id": "10Y1001A1001A893"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A74G", "AreaCompoundCode": "BZN|10Y1001A1001A74G" },
+      "geometry": { "type": "Point", "coordinates": [9.10782, 39.76402] },
+      "id": "10Y1001A1001A74G"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A885", "AreaCompoundCode": "BZN|10Y1001A1001A885" },
+      "geometry": { "type": "Point", "coordinates": [8.66826, 40.60732] },
+      "id": "10Y1001A1001A885"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YLT-1001A0008Q", "AreaCompoundCode": "BZN|10YLT-1001A0008Q" },
+      "geometry": { "type": "Point", "coordinates": [24.11246, 55.10761] },
+      "id": "10YLT-1001A0008Q"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YLV-1001A00074", "AreaCompoundCode": "BZN|10YLV-1001A00074" },
+      "geometry": { "type": "Point", "coordinates": [26.6331, 56.63643] },
+      "id": "10YLV-1001A00074"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YCS-CG-TSO---S", "AreaCompoundCode": "BZN|10YCS-CG-TSO---S" },
+      "geometry": { "type": "Point", "coordinates": [19.10181, 42.75249] },
+      "id": "10YCS-CG-TSO---S"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YMK-MEPSO----8", "AreaCompoundCode": "BZN|10YMK-MEPSO----8" },
+      "geometry": { "type": "Point", "coordinates": [21.2072, 41.48816] },
+      "id": "10YMK-MEPSO----8"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YNL----------L", "AreaCompoundCode": "BZN|10YNL----------L" },
+      "geometry": { "type": "Point", "coordinates": [5.30551, 52.19962] },
+      "id": "10YNL----------L"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YNO-1--------2", "AreaCompoundCode": "BZN|10YNO-1--------2" },
+      "geometry": { "type": "Point", "coordinates": [10.78154, 61.23936] },
+      "id": "10YNO-1--------2"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YNO-2--------T", "AreaCompoundCode": "BZN|10YNO-2--------T" },
+      "geometry": { "type": "Point", "coordinates": [7.83461, 59.11459] },
+      "id": "10YNO-2--------T"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A48H", "AreaCompoundCode": "BZN|10Y1001A1001A48H" },
+      "geometry": { "type": "Point", "coordinates": [6.59286, 61.05765] },
+      "id": "10Y1001A1001A48H"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YNO-3--------J", "AreaCompoundCode": "BZN|10YNO-3--------J" },
+      "geometry": { "type": "Point", "coordinates": [12.11412, 64.34904] },
+      "id": "10YNO-3--------J"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YNO-4--------9", "AreaCompoundCode": "BZN|10YNO-4--------9" },
+      "geometry": { "type": "Point", "coordinates": [24.16854, 69.67762] },
+      "id": "10YNO-4--------9"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YPL-AREA-----S", "AreaCompoundCode": "BZN|10YPL-AREA-----S" },
+      "geometry": { "type": "Point", "coordinates": [20.4555, 51.89652] },
+      "id": "10YPL-AREA-----S"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YPT-REN------W", "AreaCompoundCode": "BZN|10YPT-REN------W" },
+      "geometry": { "type": "Point", "coordinates": [-7.76289, 40.75359] },
+      "id": "10YPT-REN------W"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YRO-TEL------P", "AreaCompoundCode": "BZN|10YRO-TEL------P" },
+      "geometry": { "type": "Point", "coordinates": [24.36018, 45.77565] },
+      "id": "10YRO-TEL------P"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A47J", "AreaCompoundCode": "BZN|10Y1001A1001A47J" },
+      "geometry": { "type": "Point", "coordinates": [13.64427, 56.29524] },
+      "id": "10Y1001A1001A47J"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A46L", "AreaCompoundCode": "BZN|10Y1001A1001A46L" },
+      "geometry": { "type": "Point", "coordinates": [14.46437, 59.319] },
+      "id": "10Y1001A1001A46L"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A45N", "AreaCompoundCode": "BZN|10Y1001A1001A45N" },
+      "geometry": { "type": "Point", "coordinates": [16.20162, 64.02941] },
+      "id": "10Y1001A1001A45N"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A44P", "AreaCompoundCode": "BZN|10Y1001A1001A44P" },
+      "geometry": { "type": "Point", "coordinates": [21.09009, 67.03663] },
+      "id": "10Y1001A1001A44P"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YSI-ELES-----O", "AreaCompoundCode": "BZN|10YSI-ELES-----O" },
+      "geometry": { "type": "Point", "coordinates": [14.8906, 46.01639] },
+      "id": "10YSI-ELES-----O"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YSK-SEPS-----K", "AreaCompoundCode": "BZN|10YSK-SEPS-----K" },
+      "geometry": { "type": "Point", "coordinates": [18.78878, 48.75071] },
+      "id": "10YSK-SEPS-----K"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YGB----------A", "AreaCompoundCode": "BZN|10YGB----------A" },
+      "geometry": { "type": "Point", "coordinates": [-1.56606, 52.74306] },
+      "id": "10YGB----------A"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YTR-TEIAS----W", "AreaCompoundCode": "BZN|10YTR-TEIAS----W" },
+      "geometry": { "type": "Point", "coordinates": [33.09056, 39.04825] },
+      "id": "10YTR-TEIAS----W"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A93C", "AreaCompoundCode": "BZN|10Y1001A1001A93C" },
+      "geometry": { "type": "Point", "coordinates": [14.40908, 35.90503] },
+      "id": "10Y1001A1001A93C"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YCY-1001A0003J", "AreaCompoundCode": "BZN|10YCY-1001A0003J" },
+      "geometry": { "type": "Point", "coordinates": [33.15129, 35.03205] },
+      "id": "10YCY-1001A0003J"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "IS", "AreaCompoundCode": "IS" },
+      "geometry": { "type": "Point", "coordinates": [-18.67293, 64.69538] },
+      "id": "IS"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YAL-KESH-----5", "AreaCompoundCode": "BZN|10YAL-KESH-----5" },
+      "geometry": { "type": "Point", "coordinates": [20.13338, 40.64679] },
+      "id": "10YAL-KESH-----5"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YBA-JPCC-----D", "AreaCompoundCode": "BZN|10YBA-JPCC-----D" },
+      "geometry": { "type": "Point", "coordinates": [18.09574, 44.06861] },
+      "id": "10YBA-JPCC-----D"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YCS-SERBIATSOV", "AreaCompoundCode": "BZN|10YCS-SERBIATSOV" },
+      "geometry": { "type": "Point", "coordinates": [21.2427, 43.59646] },
+      "id": "10YCS-SERBIATSOV"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001C--00003F", "AreaCompoundCode": "BZN|10Y1001C--00003F" },
+      "geometry": { "type": "Point", "coordinates": [32.40861, 49.32223] },
+      "id": "10Y1001C--00003F"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A51S", "AreaCompoundCode": "BZN|10Y1001A1001A51S" },
+      "geometry": { "type": "Point", "coordinates": [28.46327, 53.78756] },
+      "id": "10Y1001A1001A51S"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A49F", "AreaCompoundCode": "BZN|10Y1001A1001A49F" },
+      "geometry": { "type": "Point", "coordinates": [43.03005, 57.00264] },
+      "id": "10Y1001A1001A49F"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A990", "AreaCompoundCode": "BZN|10Y1001A1001A990" },
+      "geometry": { "type": "Point", "coordinates": [28.55075, 47.43507] },
+      "id": "10Y1001A1001A990"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A50U", "AreaCompoundCode": "BZN|10Y1001A1001A50U" },
+      "geometry": { "type": "Point", "coordinates": [21.58812, 54.73953] },
+      "id": "10Y1001A1001A50U"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001B012", "AreaCompoundCode": "BZN|10Y1001A1001B012" },
+      "geometry": { "type": "Point", "coordinates": [42.47063, 42.36797] },
+      "id": "10Y1001A1001B012"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001B05V", "AreaCompoundCode": "BZN|10Y1001A1001B05V" },
+      "geometry": { "type": "Point", "coordinates": [47.1239, 40.36025] },
+      "id": "10Y1001A1001B05V"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001B004", "AreaCompoundCode": "BZN|10Y1001A1001B004" },
+      "geometry": { "type": "Point", "coordinates": [44.71741, 40.56845] },
+      "id": "10Y1001A1001B004"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YDE-EON------1", "AreaCompoundCode": "CTA|10YDE-EON------1" },
+      "geometry": { "type": "Point", "coordinates": [12.01427, 48.69979] },
+      "id": "10YDE-EON------1"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YDE-VE-------2", "AreaCompoundCode": "CTA|10YDE-VE-------2" },
+      "geometry": { "type": "Point", "coordinates": [12.43267, 52.22903] },
+      "id": "10YDE-VE-------2"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YDE-RWENET---I", "AreaCompoundCode": "CTA|10YDE-RWENET---I" },
+      "geometry": { "type": "Point", "coordinates": [7.65048, 50.87294] },
+      "id": "10YDE-RWENET---I"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YDE-ENBW-----N", "AreaCompoundCode": "CTA|10YDE-ENBW-----N" },
+      "geometry": { "type": "Point", "coordinates": [9.27886, 48.34955] },
+      "id": "10YDE-ENBW-----N"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A796", "AreaCompoundCode": "CTA|10Y1001A1001A796" },
+      "geometry": { "type": "Point", "coordinates": [9.09982, 55.98661] },
+      "id": "10Y1001A1001A796"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YIE-1001A00010", "AreaCompoundCode": "CTA|10YIE-1001A00010" },
+      "geometry": { "type": "Point", "coordinates": [-7.91197, 53.1149] },
+      "id": "10YIE-1001A00010"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YIT-GRTN-----B", "AreaCompoundCode": "CTA|10YIT-GRTN-----B" },
+      "geometry": { "type": "Point", "coordinates": [10.82186, 45.10784] },
+      "id": "10YIT-GRTN-----B"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YLU-CEGEDEL-NQ", "AreaCompoundCode": "CTA|10YLU-CEGEDEL-NQ" },
+      "geometry": { "type": "Point", "coordinates": [6.10851, 49.71801] },
+      "id": "10YLU-CEGEDEL-NQ"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YNO-0--------C", "AreaCompoundCode": "CTA|10YNO-0--------C" },
+      "geometry": { "type": "Point", "coordinates": [8.61496, 60.87294] },
+      "id": "10YNO-0--------C"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YSE-1--------K", "AreaCompoundCode": "CTA|10YSE-1--------K" },
+      "geometry": { "type": "Point", "coordinates": [18.96559, 65.82853] },
+      "id": "10YSE-1--------K"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A016", "AreaCompoundCode": "CTA|10Y1001A1001A016" },
+      "geometry": { "type": "Point", "coordinates": [-6.45443, 54.69078] },
+      "id": "10Y1001A1001A016"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001C--000182", "AreaCompoundCode": "CTA|10Y1001C--000182" },
+      "geometry": { "type": "Point", "coordinates": [32.40861, 49.32223] },
+      "id": "10Y1001C--000182"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A869", "AreaCompoundCode": "CTA|10Y1001A1001A869" },
+      "geometry": { "type": "Point", "coordinates": [24.85237, 50.16321] },
+      "id": "10Y1001A1001A869"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YUA-WEPS-----0", "AreaCompoundCode": "CTA|10YUA-WEPS-----0" },
+      "geometry": { "type": "Point", "coordinates": [23.69155, 48.85573] },
+      "id": "10YUA-WEPS-----0"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A83F", "AreaCompoundCode": "CTY|10Y1001A1001A83F" },
+      "geometry": { "type": "Point", "coordinates": [9.72162, 51.14781] },
+      "id": "10Y1001A1001A83F"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A65H", "AreaCompoundCode": "CTY|10Y1001A1001A65H" },
+      "geometry": { "type": "Point", "coordinates": [9.09982, 55.98661] },
+      "id": "10Y1001A1001A65H"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A92E", "AreaCompoundCode": "CTY|GB" },
+      "geometry": { "type": "Point", "coordinates": [-1.56606, 52.74306] },
+      "id": "10Y1001A1001A92E"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10YCB-TURKEY---V", "AreaCompoundCode": "CTY|10YCB-TURKEY---V" },
+      "geometry": { "type": "Point", "coordinates": [33.09056, 39.04825] },
+      "id": "10YCB-TURKEY---V"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A84D", "AreaCompoundCode": "MBA|10Y1001A1001A84D" },
+      "geometry": { "type": "Point", "coordinates": [10.8175, 45.09844] },
+      "id": "10Y1001A1001A84D"
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "10Y1001A1001A85B", "AreaCompoundCode": "MBA|10Y1001A1001A85B" },
+      "geometry": { "type": "Point", "coordinates": [15.62564, 40.7973] },
+      "id": "10Y1001A1001A85B"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "collectedProperties": [
+          { "id": "10YAT-APG------L", "AreaCompoundCode": "BZN|10YAT-APG------L" },
+          { "id": "10YBE----------2", "AreaCompoundCode": "BZN|10YBE----------2" },
+          { "id": "10Y1001A1001A82H", "AreaCompoundCode": "BZN|10Y1001A1001A82H" },
+          { "id": "10YFR-RTE------C", "AreaCompoundCode": "BZN|10YFR-RTE------C" },
+          { "id": "10YNL----------L", "AreaCompoundCode": "BZN|10YNL----------L" }
+        ],
+        "id": "10YDOM-REGION-1V"
+      },
+      "geometry": { "type": "Point", "coordinates": [2.52771, 46.74556] },
+      "id": "10YDOM-REGION-1V"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "collectedProperties": [
+          { "id": "10YAT-APG------L", "AreaCompoundCode": "BZN|10YAT-APG------L" },
+          { "id": "10YPT-REN------W", "AreaCompoundCode": "CTA|10YPT-REN------W" },
+          { "id": "10YES-REE------0", "AreaCompoundCode": "CTA|10YES-REE------0" },
+          { "id": "10YFR-RTE------C", "AreaCompoundCode": "CTA|10YFR-RTE------C" },
+          { "id": "10YBE----------2", "AreaCompoundCode": "CTA|10YBE----------2" },
+          { "id": "10YLU-CEGEDEL-NQ", "AreaCompoundCode": "CTY|10YLU-CEGEDEL-NQ" },
+          { "id": "10Y1001A1001A83F", "AreaCompoundCode": "CTY|10Y1001A1001A83F" },
+          { "id": "10YIT-GRTN-----B", "AreaCompoundCode": "CTY|10YIT-GRTN-----B" },
+          { "id": "10YCH-SWISSGRIDZ", "AreaCompoundCode": "CTA|10YCH-SWISSGRIDZ" },
+          { "id": "10YSI-ELES-----O", "AreaCompoundCode": "CTA|10YSI-ELES-----O" },
+          { "id": "10YHR-HEP------M", "AreaCompoundCode": "CTA|10YHR-HEP------M" },
+          { "id": "10YBA-JPCC-----D", "AreaCompoundCode": "CTA|10YBA-JPCC-----D" },
+          { "id": "10YCS-CG-TSO---S", "AreaCompoundCode": "CTA|10YCS-CG-TSO---S" },
+          { "id": "10YAL-KESH-----5", "AreaCompoundCode": "CTA|10YAL-KESH-----5" },
+          { "id": "10YGR-HTSO-----Y", "AreaCompoundCode": "CTA|10YGR-HTSO-----Y" },
+          { "id": "10YMK-MEPSO----8", "AreaCompoundCode": "CTA|10YMK-MEPSO----8" },
+          { "id": "10YCA-BULGARIA-R", "AreaCompoundCode": "CTA|10YCA-BULGARIA-R" },
+          { "id": "10YCS-SERBIATSOV", "AreaCompoundCode": "CTA|10YCS-SERBIATSOV" },
+          { "id": "10YRO-TEL------P", "AreaCompoundCode": "CTA|10YRO-TEL------P" },
+          { "id": "10YHU-MAVIR----U", "AreaCompoundCode": "CTA|10YHU-MAVIR----U" },
+          { "id": "10YSK-SEPS-----K", "AreaCompoundCode": "CTA|10YSK-SEPS-----K" },
+          { "id": "10YPL-AREA-----S", "AreaCompoundCode": "CTA|10YPL-AREA-----S" },
+          { "id": "10YCZ-CEPS-----N", "AreaCompoundCode": "CTA|10YCZ-CEPS-----N" },
+          { "id": "10YDK-1--------W", "AreaCompoundCode": "BZN|10YDK-1--------W" },
+          { "id": "10YNL----------L", "AreaCompoundCode": "BZN|10YNL----------L" },
+          { "id": "10YTR-TEIAS----W", "AreaCompoundCode": "CTA|10YTR-TEIAS----W" }
+        ],
+        "id": "10YEU-CONT-SYNC0"
+      },
+      "geometry": { "type": "Point", "coordinates": [33.09056, 39.04825] },
+      "id": "10YEU-CONT-SYNC0"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "collectedProperties": [
+          { "id": "10YLT-1001A0008Q", "AreaCompoundCode": "CTA|10YLT-1001A0008Q" },
+          { "id": "10YLV-1001A00074", "AreaCompoundCode": "CTA|10YLV-1001A00074" },
+          { "id": "10Y1001A1001A39I", "AreaCompoundCode": "CTA|10Y1001A1001A39I" }
+        ],
+        "id": "10Y1001A1001A94A"
+      },
+      "geometry": { "type": "Point", "coordinates": [24.11246, 55.10761] },
+      "id": "10Y1001A1001A94A"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "collectedProperties": [
+          { "id": "10YNO-0--------C", "AreaCompoundCode": "CTA|10YNO-0--------C" },
+          { "id": "10YSE-1--------K", "AreaCompoundCode": "CTA|10YSE-1--------K" },
+          { "id": "10YFI-1--------U", "AreaCompoundCode": "CTA|10YFI-1--------U" },
+          { "id": "10YDK-2--------M", "AreaCompoundCode": "BZN|10YDK-2--------M" }
+        ],
+        "id": "10Y1001A1001A91G"
+      },
+      "geometry": { "type": "Point", "coordinates": [18.96559, 65.82853] },
+      "id": "10Y1001A1001A91G"
+    }
+  ]
+}
