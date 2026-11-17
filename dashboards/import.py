@@ -41,6 +41,8 @@ def adapt(text):
     text = text.replace('"I3yziRGVz"', '"energy-pg"').replace('"000000001"', '"energy-pg"')
     text = text.replace('"type":"postgres"', '"type":"grafana-postgresql-datasource"')
     text = text.replace('"type": "postgres"', '"type": "grafana-postgresql-datasource"')
+    # Puissance du parc nucléaire codée en dur dans l'original (avant Flamanville 3) : 61370 -> 62990 MW.
+    text = text.replace("61370", "62990")
     return text.replace("https://r2.energygraph.info/", "/static/")
 
 
