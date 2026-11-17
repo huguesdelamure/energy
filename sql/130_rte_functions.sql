@@ -10,12 +10,12 @@ CREATE OR REPLACE FUNCTION raw.rte_update_instant(update_id int) RETURNS timesta
   SELECT ((date '2015-01-01' + update_id + 1)::timestamp AT TIME ZONE 'UTC')
 $$;
 
--- Unités nucléaires : celles déclarées NUCLEAR par Actual Generation ou par un message REMIT.
+-- Parc nucléaire = unités déclarées NUCLEAR par Actual Generation (réacteurs en service, 57 en 2026).
+-- Les réacteurs fermés (Fessenheim 1 et 2, 2020) n'y figurent pas : ils sont donc absents des sommes,
+-- y compris pour les dates antérieures à leur fermeture (limite connue).
 CREATE OR REPLACE FUNCTION raw.rte_nuclear_units() RETURNS TABLE (eic text, name text, capacity real)
 LANGUAGE sql STABLE AS $$
-  SELECT u.eic, u.name, u.installed_capacity FROM raw.rte_unit u
-  WHERE u.production_type = 'NUCLEAR'
-     OR u.eic IN (SELECT DISTINCT unit_eic FROM raw.rte_unavailability WHERE fuel_type = 'NUCLEAR')
+  SELECT u.eic, u.name, u.installed_capacity FROM raw.rte_unit u WHERE u.production_type = 'NUCLEAR'
 $$;
 
 -- Tranches d'indisponibilité en vigueur, telles que connues à as_of (dernière version par événement,
@@ -131,16 +131,19 @@ SET search_path = pg_catalog, public AS $$
 $$;
 
 -- Production par réacteur + série "All" (somme du parc). eic_code devient un label Grafana.
-CREATE OR REPLACE FUNCTION rte.generation_per_units_nuclear(t_from timestamptz, t_to timestamptz)
-RETURNS TABLE ("time" timestamptz, metric text, value double precision, eic_code text) LANGUAGE sql STABLE SECURITY DEFINER
+-- Colonnes : le panel affiche ${__field.labels.name} et lie sur ${__field.labels.eic_code} ; la série
+-- de somme doit contenir "All" (override byRegexp .*All.*).
+DROP FUNCTION IF EXISTS rte.generation_per_units_nuclear(timestamptz, timestamptz);
+CREATE FUNCTION rte.generation_per_units_nuclear(t_from timestamptz, t_to timestamptz)
+RETURNS TABLE ("time" timestamptz, value double precision, name text, eic_code text) LANGUAGE sql STABLE SECURITY DEFINER
 SET search_path = pg_catalog, public AS $$
   WITH g AS (
     SELECT g.time, u.name, u.eic, g.value FROM raw.rte_generation g JOIN raw.rte_unit u ON u.id = g.unit_id
     WHERE u.eic = ANY(raw.rte_nuclear_eics()) AND g.time >= t_from AND g.time < t_to
   )
-  SELECT time, name, value, eic FROM g
+  SELECT time, value, name, eic FROM g
   UNION ALL
-  SELECT time, 'All', sum(value), 'All' FROM g GROUP BY time
+  SELECT time, sum(value), 'All', 'All' FROM g GROUP BY time
   ORDER BY 1
 $$;
 

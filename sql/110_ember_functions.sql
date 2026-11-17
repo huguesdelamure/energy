@@ -1,6 +1,13 @@
 -- Fonctions ember.* (dossier World Electricity). Contrat : dashboards/spec-fr-world.md. Idempotent.
 SET ROLE energy;
 
+-- Les variables arrivent en 'AAAA' (annuel), 'AAAA-MM' (mensuel) ou 'AAAA-MM-JJ' selon leur ancienneté.
+CREATE OR REPLACE FUNCTION raw.ember_date(t text) RETURNS date LANGUAGE sql IMMUTABLE AS $$
+  SELECT CASE WHEN t ~ '^\d{4}$' THEN (t || '-01-01')::date
+              WHEN t ~ '^\d{4}-\d{2}$' THEN (t || '-01')::date
+              ELSE t::date END
+$$;
+
 -- Filières de base (non agrégées) qui composent la production.
 CREATE OR REPLACE FUNCTION raw.ember_gen_sources() RETURNS text[] LANGUAGE sql IMMUTABLE AS $$
   SELECT ARRAY['Coal', 'Gas', 'Other fossil', 'Nuclear', 'Hydro', 'Wind', 'Solar', 'Bioenergy', 'Other renewables']
@@ -40,7 +47,7 @@ $$;
 CREATE OR REPLACE FUNCTION ember.production_intensity_per_time_area_config(period text, region text, "time" text, config text)
 RETURNS TABLE (production double precision, intensity double precision, area_name text, region_name text)
 LANGUAGE sql STABLE SECURITY DEFINER SET search_path = pg_catalog, public AS $$
-  WITH a AS (SELECT * FROM raw.ember_areas(period, region, "time"::date)),
+  WITH a AS (SELECT * FROM raw.ember_areas(period, region, raw.ember_date("time"))),
   s AS (
     SELECT a.area, a.region, e.gen_twh,
       coalesce(
@@ -50,7 +57,7 @@ LANGUAGE sql STABLE SECURITY DEFINER SET search_path = pg_catalog, public AS $$
            AND f.source = e.source AND f.country IS NULL),
         e.intensity, 0) AS factor
     FROM a JOIN raw.ember e ON e.area = a.area
-    WHERE e.period = production_intensity_per_time_area_config.period AND e.date = "time"::date
+    WHERE e.period = production_intensity_per_time_area_config.period AND e.date = raw.ember_date("time")
       AND e.source = ANY(raw.ember_gen_sources()) AND e.gen_twh > 0
   )
   SELECT sum(gen_twh), sum(gen_twh * factor) / nullif(sum(gen_twh), 0), s.area, s.region
@@ -89,7 +96,7 @@ $$;
 CREATE OR REPLACE FUNCTION ember.get_from_date(area text, period text, from1 text)
 RETURNS TABLE (__text text, __value date) LANGUAGE sql STABLE SECURITY DEFINER
 SET search_path = pg_catalog, public AS $$
-  SELECT * FROM ember.get_from_date(area, period) d WHERE d.__value > from1::date
+  SELECT * FROM ember.get_from_date(area, period) d WHERE d.__value > raw.ember_date(from1)
 $$;
 
 -- Durées comparables : k pas (années ou mois) tant que les deux périodes restent dans les données
@@ -104,8 +111,8 @@ SET search_path = pg_catalog, public AS $$
   step AS (SELECT CASE WHEN period = 'year' THEN interval '1 year' ELSE interval '1 month' END AS s)
   SELECT CASE WHEN k = 1 THEN '1 ' || period ELSE k || ' ' || period || 's' END, (k * step.s)::text
   FROM step, last, generate_series(1, 600) k
-  WHERE from2::date + (k - 1) * step.s <= last.d
-    AND from1::date + k * step.s <= from2::date
+  WHERE raw.ember_date(from2) + (k - 1) * step.s <= last.d
+    AND raw.ember_date(from1) + k * step.s <= raw.ember_date(from2)
   ORDER BY k
 $$;
 
@@ -117,8 +124,8 @@ RETURNS TABLE (y double precision, x text) LANGUAGE sql STABLE SECURITY DEFINER
 SET search_path = pg_catalog, public AS $$
   WITH e AS (
     SELECT e.source,
-      sum(e.gen_twh) FILTER (WHERE e.date >= from1::date AND e.date < from1::date + duration::interval) AS v1,
-      sum(e.gen_twh) FILTER (WHERE e.date >= from2::date AND e.date < from2::date + duration::interval) AS v2
+      sum(e.gen_twh) FILTER (WHERE e.date >= raw.ember_date(from1) AND e.date < raw.ember_date(from1) + duration::interval) AS v1,
+      sum(e.gen_twh) FILTER (WHERE e.date >= raw.ember_date(from2) AND e.date < raw.ember_date(from2) + duration::interval) AS v2
     FROM raw.ember e
     WHERE e.area = get_waterfall.area AND e.period = get_waterfall.period
     GROUP BY e.source
