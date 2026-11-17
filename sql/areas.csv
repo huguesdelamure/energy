@@ -56,6 +56,7 @@ IT-CNORTH,bzn,10Y1001A1001A70O,IT,Italy Centre-North
 IT-CSOUTH,bzn,10Y1001A1001A71M,IT,Italy Centre-South
 IT-Calabria,bzn,10Y1001C--00096J,IT,Italy Calabria
 IT-NORTH,bzn,10Y1001A1001A73I,IT,Italy North
+IT-SACOAC,bzn,10Y1001A1001A885,IT,Italy SACO AC
 IT-SOUTH,bzn,10Y1001A1001A788,IT,Italy South
 IT-Sardinia,bzn,10Y1001A1001A74G,IT,Italy Sardinia
 IT-Sicily,bzn,10Y1001A1001A75E,IT,Italy Sicily
@@ -66,6 +67,7 @@ MK,bzn,10YMK-MEPSO----8,MK,North Macedonia
 NL,bzn,10YNL----------L,NL,Netherlands
 NO1,bzn,10YNO-1--------2,NO,Norway 1
 NO2,bzn,10YNO-2--------T,NO,Norway 2
+NO2NSL,bzn,50Y0JVU59B4JWQCU,NO,Norway 2 NSL
 NO3,bzn,10YNO-3--------J,NO,Norway 3
 NO4,bzn,10YNO-4--------9,NO,Norway 4
 NO5,bzn,10Y1001A1001A48H,NO,Norway 5

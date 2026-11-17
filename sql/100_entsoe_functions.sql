@@ -234,30 +234,7 @@ $$;
 
 -- --- Prix --------------------------------------------------------------------------------
 
--- Une série par zone de prix (Grafana pivote sur metric). Pas natif jusqu'à 62 jours,
--- moyenne horaire jusqu'à 2 ans, journalière au-delà. ENTSO-E publie A44 en EUR : currency ignoré.
-CREATE OR REPLACE FUNCTION entsoe.day_ahead_prices(currency text, t_from timestamptz, t_to timestamptz)
-RETURNS TABLE ("time" timestamptz, metric text, value double precision) LANGUAGE sql STABLE SECURITY DEFINER
-SET search_path = pg_catalog, public AS $$
-  WITH z AS (
-    SELECT a.domain_id, a.code FROM raw.area a WHERE a.area_type = 'bzn'
-  ),
-  p AS (
-    SELECT DISTINCT ON (d.domain_id, d.time) d.time, d.domain_id, d.price
-    FROM raw.day_ahead_price d
-    WHERE d.domain_id IN (SELECT domain_id FROM z) AND d.time >= t_from AND d.time < t_to
-    ORDER BY d.domain_id, d.time, d.dur
-  ),
-  b AS (
-    SELECT CASE WHEN t_to - t_from <= interval '62 days' THEN NULL
-                WHEN t_to - t_from <= interval '2 years' THEN interval '1 hour'
-                ELSE interval '1 day' END AS w
-  )
-  SELECT CASE WHEN b.w IS NULL THEN p.time ELSE time_bucket(b.w, p.time, 'Europe/Brussels') END,
-         z.code, avg(p.price)
-  FROM p JOIN z USING (domain_id), b
-  GROUP BY 1, 2 ORDER BY 1
-$$;
+-- entsoe.day_ahead_prices : voir 101_entsoe_prices_flows.sql (format wide imposé par le plugin).
 
 -- Heures cumulées depuis le 1er janvier à prix négatif (inf_0) ou négatif ou nul (inf_eq_0),
 -- une série par zone x année, superposées sur l'année de t_from. Un point par jour.
