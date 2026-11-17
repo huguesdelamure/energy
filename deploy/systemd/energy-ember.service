@@ -1,0 +1,11 @@
+[Unit]
+Description=Collecte ember (energy.mgmt0.net)
+After=postgresql.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=energy
+Group=energy
+ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/sources_collect.py ember
+Nice=10

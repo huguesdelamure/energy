@@ -1,0 +1,10 @@
+[Unit]
+Description=Collecte Ember hebdomadaire
+
+[Timer]
+OnCalendar=Mon 05:10
+RandomizedDelaySec=600
+Persistent=true
+
+[Install]
+WantedBy=timers.target
