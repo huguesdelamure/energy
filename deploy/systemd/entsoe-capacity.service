@@ -1,9 +1,10 @@
 [Unit]
-Description=Collecte ENTSO-E A68 (année courante et précédente)
+Description=Collecte ENTSO-E A68 (années non consolidées)
 After=postgresql.service network-online.target
 
 [Service]
 Type=oneshot
 User=energy
 Group=energy
-ExecStart=/bin/sh -c 'exec /opt/energy/venv/bin/python -I /opt/energy/collector/entsoe_collect.py backfill A68 --since $(date -d "last year" +%%Y)-01-01 --force'
+# Sans --force, le backfill ne redemande que les années pas encore consolidées (année en cours).
+ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/entsoe_collect.py backfill A68
