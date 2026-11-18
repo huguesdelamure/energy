@@ -215,6 +215,8 @@ def main():
                 # fenêtre glissante : jusqu'à maintenant pour les indisponibilités (publication), J+1 pour la production
                 end = datetime.now(UTC) if kind == "unavailability" else today + timedelta(days=1)
                 run(api, store, kind, since, end, force=True)
+        conn.execute("SELECT raw.rte_refresh_unit_bounds()")
+        conn.commit()
 
 
 if __name__ == "__main__":

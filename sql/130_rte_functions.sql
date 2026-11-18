@@ -10,9 +10,30 @@ CREATE OR REPLACE FUNCTION raw.rte_update_instant(update_id int) RETURNS timesta
   SELECT ((date '2015-01-01' + update_id + 1)::timestamp AT TIME ZONE 'UTC')
 $$;
 
--- Parc nucléaire = unités déclarées NUCLEAR par Actual Generation (réacteurs en service, 57 en 2026).
--- Les réacteurs fermés (Fessenheim 1 et 2, 2020) n'y figurent pas : ils sont donc absents des sommes,
--- y compris pour les dates antérieures à leur fermeture (limite connue).
+-- Parc nucléaire = unités déclarées NUCLEAR par Actual Generation depuis 2015 (59, dont Fessenheim 1 et 2).
+-- Chaque unité ne compte qu'entre in_service_from et in_service_until : sans cela un réacteur fermé
+-- (Fessenheim, 2020) ou pas encore en service (Flamanville 3, 2024) serait compté disponible à pleine puissance,
+-- faute de message d'indisponibilité.
+
+-- Bornes d'activité : premier et dernier pas publiés par Actual Generation ; le début est avancé au premier
+-- message d'indisponibilité de l'unité s'il est antérieur (unités publiées tardivement par Actual Generation).
+-- Le début des données (2015-01-01) et une publication de moins de 7 jours laissent la borne ouverte.
+-- Appelée par rte_collect.py après chaque collecte.
+CREATE OR REPLACE FUNCTION raw.rte_refresh_unit_bounds() RETURNS void LANGUAGE sql AS $$
+  WITH remit AS (
+    SELECT unit_eic, min(least(publication, start_date)) AS first FROM raw.rte_unavailability GROUP BY unit_eic
+  ),
+  b AS (
+    SELECT u.id,
+      least((SELECT min(g.time) FROM raw.rte_generation g WHERE g.unit_id = u.id), r.first) AS first,
+      (SELECT max(g.time) FROM raw.rte_generation g WHERE g.unit_id = u.id) AS last
+    FROM raw.rte_unit u LEFT JOIN remit r ON r.unit_eic = u.eic
+  )
+  UPDATE raw.rte_unit u SET
+    in_service_from  = CASE WHEN b.first > timestamptz '2015-01-02 00:00+00' THEN b.first END,
+    in_service_until = CASE WHEN b.last < now() - interval '7 days' THEN b.last + interval '1 hour' END
+  FROM b WHERE b.id = u.id
+$$;
 CREATE OR REPLACE FUNCTION raw.rte_nuclear_units() RETURNS TABLE (eic text, name text, capacity real)
 LANGUAGE sql STABLE AS $$
   SELECT u.eic, u.name, u.installed_capacity FROM raw.rte_unit u WHERE u.production_type = 'NUCLEAR'
@@ -37,15 +58,18 @@ $$;
 CREATE OR REPLACE FUNCTION raw.rte_availability(as_of timestamptz, eics text[], t_from timestamptz, t_to timestamptz)
 RETURNS TABLE (eic text, t timestamptz, available double precision) LANGUAGE sql STABLE AS $$
   WITH seg AS MATERIALIZED (SELECT * FROM raw.rte_segments(as_of, eics, t_from, t_to)),
-  u AS (SELECT r.eic, r.installed_capacity AS cap FROM raw.rte_unit r WHERE r.eic = ANY(eics)),
+  u AS (SELECT r.eic, r.installed_capacity AS cap, r.in_service_from AS f, r.in_service_until AS l
+        FROM raw.rte_unit r WHERE r.eic = ANY(eics)),
   pts AS (
     SELECT u.eic, t_from AS t FROM u
+    UNION SELECT u.eic, u.f FROM u WHERE u.f > t_from AND u.f < t_to
+    UNION SELECT u.eic, u.l FROM u WHERE u.l > t_from AND u.l < t_to
     UNION SELECT seg.eic, seg.s FROM seg WHERE seg.s > t_from AND seg.s < t_to
     UNION SELECT seg.eic, seg.e FROM seg WHERE seg.e > t_from AND seg.e < t_to
   ),
   v AS (
-    SELECT p.eic, p.t, coalesce(
-      (SELECT min(seg.available) FROM seg WHERE seg.eic = p.eic AND seg.s <= p.t AND seg.e > p.t), u.cap) AS available
+    SELECT p.eic, p.t, CASE WHEN p.t < u.f OR p.t >= u.l THEN 0 ELSE coalesce(
+      (SELECT min(seg.available) FROM seg WHERE seg.eic = p.eic AND seg.s <= p.t AND seg.e > p.t), u.cap) END AS available
     FROM pts p JOIN u USING (eic)
   )
   -- on ne garde que les vrais changements de valeur

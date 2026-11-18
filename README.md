@@ -21,6 +21,7 @@ Site : https://energy.mgmt0.net
 | [ODRÉ](https://odre.opendatasoft.com) | registre national des installations de production (instantanés annuels) | Licence Ouverte |
 | [Ember](https://ember-energy.org) | production et émissions mondiales, annuelles et mensuelles | CC-BY 4.0 |
 | [Copernicus ERA5](https://cds.climate.copernicus.eu) via [atlite](https://github.com/PyPSA/atlite) | rasters horaires de facteur de charge éolien et solaire | licence Copernicus |
+| [OpenStreetMap](https://www.openstreetmap.org) via Overpass | position et puissance des éoliennes (carte World) | ODbL, © contributeurs OpenStreetMap |
 | [geo.api.gouv.fr](https://geo.api.gouv.fr) | centres des communes | Licence Ouverte |
 | [Natural Earth](https://www.naturalearthdata.com) | contours des pays | domaine public |
 
@@ -32,13 +33,26 @@ Site : https://energy.mgmt0.net
   transactions en lecture seule, `statement_timeout` 10 s, 5 connexions.
 - Collecteurs Python sous `collector/`, lancés par des timers systemd (`deploy/systemd/`).
 - Apache en frontal (`deploy/apache/`), ressources statiques des cartes sous `/static/`.
+- Sauvegarde : `pg_dump` quotidien dans `/var/backups/energy` sur le serveur, 7 jours gardés
+  (`deploy/scripts/energy-backup.sh`, procédure de restauration TimescaleDB en tête du script).
+  Copie hors serveur : non faite.
+- Rattrapage ENTSO-E complet : `systemd-run --unit=entsoe-backfill-all /usr/local/sbin/entsoe-backfill-all.sh`
+  (3 files parallèles, sous la limite de 400 requêtes/min ; reprenable).
+
+## Limites connues
+
+- Disponibilité nucléaire : chaque unité ne compte qu'entre ses bornes d'activité, déduites des publications RTE
+  (`raw.rte_refresh_unit_bounds`). Les groupes publiés tardivement par RTE (CNR, 2021-2022) comptent pour 0 avant.
+- Dashboards RTE sur plus de 5 ans environ : délai de 10 s dépassé (production horaire non agrégée).
+- Courbes « rte-AAAA-MM-JJ » d'Aggregated availability retirées à l'import : ressaisies à la main dans
+  l'original, sans source publique.
 
 ## Arborescence
 
 | Chemin | Contenu |
 |---|---|
 | `sql/` | schémas (`0xx`) et fonctions (`1xx`), idempotents, à jouer dans l'ordre en `postgres` |
-| `collector/` | `entsoe_collect.py`, `rte_collect.py`, `sources_collect.py` (Ember, ODRÉ, communes), `era5_cf.py`, `make_borders.py` |
+| `collector/` | `entsoe_collect.py`, `rte_collect.py`, `sources_collect.py` (Ember, ODRÉ, communes), `era5_cf.py`, `osm_wind.py`, `make_borders.py` |
 | `dashboards/` | JSON d'origine, `import.py`, contrats des fonctions déduits des dashboards (`spec-*.md`) |
 | `deploy/` | unités systemd, vhosts Apache, drop-in Grafana, scripts |
 | `tests/` | tests SQL (données synthétiques ou réelles, exécutés en `grafana_ro`) |

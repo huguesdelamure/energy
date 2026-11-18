@@ -24,6 +24,7 @@ FOLDERS = {  # folderId d'origine -> (uid, titre)
 }
 INFINITY_UID = "d7489df0-0285-4aad-947c-27b089483f47"
 HOME_UID = "e72-tIG4z"
+AGGREGATED_AVAILABILITY_UID = "uMjgqrW4z"
 
 
 def api(method, path, body=None):
@@ -52,6 +53,17 @@ def adapt(text):
     return text.replace("https://energygraph.info/", "/")
 
 
+def drop_rte_curves(dash):
+    """Courbes « rte-AAAA-MM-JJ » ressaisies à la main dans l'original depuis des PDF : aucune source
+    publique, la requête renvoie toujours vide. On retire la requête, son override et la variable."""
+    for p in dash["panels"]:
+        p["targets"] = [t for t in p.get("targets", []) if "multi_origin" not in t.get("rawSql", "")]
+        overrides = p.get("fieldConfig", {}).get("overrides")
+        if overrides:
+            p["fieldConfig"]["overrides"] = [o for o in overrides if "rte" not in str(o["matcher"].get("options"))]
+    dash["templating"]["list"] = [v for v in dash["templating"]["list"] if v["name"] != "rte_updates"]
+
+
 def main(src):
     status, _ = api("GET", f"/api/datasources/uid/{INFINITY_UID}")
     if status == 404:
@@ -67,6 +79,8 @@ def main(src):
         dash, meta = exported["dashboard"], exported["meta"]
         dash["id"] = None
         dash.pop("version", None)
+        if dash["uid"] == AGGREGATED_AVAILABILITY_UID:
+            drop_rte_curves(dash)
         if dash["uid"] == HOME_UID:
             for p in dash["panels"]:
                 if p["type"] == "dashlist" and p["options"].get("folderId") in FOLDERS:

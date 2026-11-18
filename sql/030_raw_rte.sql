@@ -9,6 +9,9 @@ CREATE TABLE IF NOT EXISTS raw.rte_unit (
   production_type text,            -- NUCLEAR, FOSSIL_GAS, HYDRO_PUMPED_STORAGE... (Actual Generation)
   installed_capacity real          -- MW, dernière valeur vue dans les messages REMIT
 );
+-- Période d'activité, déduite d'Actual Generation par raw.rte_refresh_unit_bounds() (NULL = ouverte).
+ALTER TABLE raw.rte_unit ADD COLUMN IF NOT EXISTS in_service_from timestamptz;
+ALTER TABLE raw.rte_unit ADD COLUMN IF NOT EXISTS in_service_until timestamptz;
 
 -- Actual Generation per unit : production horaire (MW).
 CREATE TABLE IF NOT EXISTS raw.rte_generation (

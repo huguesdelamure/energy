@@ -25,7 +25,7 @@ import requests
 API = "https://web-api.tp.entsoe.eu/api"
 TOKEN_FILE = "/etc/energy/entsoe.token"
 DSN = "dbname=energy"
-MIN_INTERVAL = 0.25          # s entre deux requêtes : 240/min, sous la limite de 400/min
+MIN_INTERVAL = 0.5           # s entre deux requêtes : 120/min par processus, 3 backfills en parallèle restent sous 400/min
 SETTLED = timedelta(days=7)  # au-delà, une période collectée n'est plus re-demandée en backfill
 
 log = logging.getLogger("entsoe")

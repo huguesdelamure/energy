@@ -1,0 +1,11 @@
+[Unit]
+Description=Éoliennes OpenStreetMap pour la carte b550 (energy.mgmt0.net)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=energy
+Group=energy
+ExecStart=/opt/energy/venv/bin/python -I /opt/energy/collector/osm_wind.py /srv/energy/static/osm_wind_turbines.pbf
+Nice=10
