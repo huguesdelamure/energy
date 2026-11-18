@@ -50,6 +50,8 @@ def adapt(text):
     # (1 hour, nuclear) et casse la requête.
     text = text.replace("$production_types, $__timeFrom(), $__timeTo())", "'$production_types', $__timeFrom(), $__timeTo())")
     text = text.replace("::production_type[], $bucket_width,", "::production_type[], '$bucket_width',")
+    # Business Text >= 5 : handlebars n'est plus global dans les helpers, il est fourni par context.
+    text = re.sub(r"(?<!context\.)handlebars\.registerHelper", "context.handlebars.registerHelper", text)
     # Liens absolus vers le site d'origine (liens de panels, entre dashboards) -> relatifs.
     return text.replace("https://energygraph.info/", "/")
 
