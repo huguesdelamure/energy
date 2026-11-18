@@ -8,6 +8,7 @@ Idempotent (overwrite). À lancer sur le serveur : sudo python3 -I import.py <do
 
 import base64
 import json
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -64,6 +65,38 @@ def drop_rte_curves(dash):
     dash["templating"]["list"] = [v for v in dash["templating"]["list"] if v["name"] != "rte_updates"]
 
 
+HOME_HEADER = (
+    '<h1 id="energy">energy.mgmt0.net</h1>\r\n'
+    '<p>Electricity in the World, Europe and France, and its greenhouse gas emissions, '
+    'with time series and large scale map visualisations.</p>\r\n'
+    '<p>Fork of <a href="https://energygraph.info">energygraph.info</a>, no longer maintained by its author: '
+    'dashboards and map plugin from the original site, data collection rebuilt from public sources '
+    '(<a href="https://github.com/huguesdelamure/energy">source</a>).</p>'
+)
+TITLE_SUFFIX = re.compile(r"\s*(?:-\s*energygraph\.info|\(energygraph\.info\))$")
+
+
+def rebrand(dash):
+    """Fork : pas de marque « Energygraph ». Accueil réécrit avec le crédit, suffixe des titres de panels retiré."""
+    def walk(panels):
+        for p in panels:
+            yield p
+            yield from walk(p.get("panels", []))
+    for p in walk(dash["panels"]):
+        if p.get("title"):
+            p["title"] = TITLE_SUFFIX.sub("", p["title"])
+        if dash["uid"] == HOME_UID and p["type"] == "marcusolsson-dynamictext-panel":
+            content = p["options"]["defaultContent"]
+            head, sep, rest = content.partition("<div")
+            assert sep, "accueil : structure inattendue"
+            p["options"]["defaultContent"] = HOME_HEADER + "\r\n" + sep + rest
+            grow = 2  # deux lignes de grille pour le paragraphe de crédit
+            p["gridPos"]["h"] += grow
+            for other in dash["panels"]:
+                if other is not p:
+                    other["gridPos"]["y"] += grow
+
+
 def main(src):
     status, _ = api("GET", f"/api/datasources/uid/{INFINITY_UID}")
     if status == 404:
@@ -79,6 +112,7 @@ def main(src):
         dash, meta = exported["dashboard"], exported["meta"]
         dash["id"] = None
         dash.pop("version", None)
+        rebrand(dash)
         if dash["uid"] == AGGREGATED_AVAILABILITY_UID:
             drop_rte_curves(dash)
         if dash["uid"] == HOME_UID:
